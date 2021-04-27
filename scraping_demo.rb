@@ -1,9 +1,10 @@
 require 'open-uri'
 require 'nokogiri'
-require "pry-byebug"
+# require "pry-byebug"
 
 # Let's scrape recipes from http://www.epicurious.com
-def scraper(url)
+# def scraper(url)
+  url = gets.chomp
 
   url = "https://www.bbcgoodfood.com/search/recipes?q=#{url}"
 
@@ -15,13 +16,13 @@ def scraper(url)
     puts element.attribute('href').value
   end
   # search for next bvutton
-  next_btn = html_doc.search('.pagination-arrow').first
-  binding.pry
-  next_url = next_btn.attribute('href').value
-  if next_url
-    scraper(next_url)
-  end
+  # next_btn = html_doc.search('.pagination-arrow').first
+  # binding.pry
+  # next_url = next_btn.attribute('href').value
+  # if next_url
+  #   scraper(next_url)
+  # end
   # if it exists then we scrape the page the next button links to
-end
+# end
 
-scraper("chocolate")
+# scraper("chocolate")
